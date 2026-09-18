@@ -45,6 +45,8 @@
 ## 📌 Projects
 
 ### 🛰 [위성 지상국 관제 콘솔 (TT&C Console)](https://github.com/2Dokk/ttc-console)
+<a href="https://github.com/2Dokk/ttc-console"><img src="assets/ttc.png" width="100%" alt="TT&C 관제 콘솔 화면"></a>
+
 > 위성이 지상국 상공을 지나는 **몇 분 동안만 통신할 수 있다**는 제약을 그대로 구현한 소형 관제 시스템
 
 - 공개 궤도 데이터(Celestrak TLE) + **Orekit SGP4** 로 위성 위치와 **AOS/LOS** 계산
@@ -57,6 +59,8 @@
 ---
 
 ### 💸 [DVP 증권결제 시뮬레이터](https://github.com/2Dokk/dvp-settlement-simulator)
+<a href="https://github.com/2Dokk/dvp-settlement-simulator"><img src="assets/dvp.png" width="100%" alt="DVP 결제 흐름"></a>
+
 > 증권 이전과 대금 지급이 **반드시 함께 성공하거나 함께 실패**하는 DVP 결제를 넷팅·동시성 제어까지 포함해 구현
 
 - DVP 원자성 = 하나의 `@Transactional` 안에서 **잠금 → 양쪽 검증 → 일괄 반영**
@@ -69,6 +73,8 @@
 ---
 
 ### 📈 [Smart Order Router (KRX · NXT)](https://github.com/2Dokk/smart-order-router)
+<a href="https://github.com/2Dokk/smart-order-router"><img src="assets/sor.png" width="100%" alt="SOR 백테스트 결과"></a>
+
 > 한국거래소와 넥스트레이드 복수시장 환경에서 주문을 가장 유리한 시장으로 나눠 보내는 **SOR 엔진 + 모의 거래소**
 
 - **가격·시간 우선** 매칭엔진 직접 구현 (지정가/시장가, DAY·IOC·FOK, KRX 호가단위 검증)
@@ -81,6 +87,8 @@
 ---
 
 ### 🌿 [한의원 진료 기록 자동 정리 도우미 (RAG)](https://github.com/2Dokk/Rag-Project)
+<a href="https://github.com/2Dokk/Rag-Project"><img src="assets/rag.png" width="100%" alt="RAG 파이프라인 예시"></a>
+
 > 진료 중 남긴 짧은 메모를 **정식 진료기록으로 구조화**하고, 과거 방문 이력을 근거로 **비교 브리핑**을 생성
 
 - 메모 구조화 → 벡터DB(Chroma)에서 같은 환자의 **과거 이력 의미 검색** → 이력을 근거로 LLM 브리핑 생성
@@ -93,6 +101,8 @@
 
 ### 🎓 CNU&U — 학회 운영·활동 관리 서비스
 [Frontend](https://github.com/2Dokk/unu-frontend) · [Backend](https://github.com/2Dokk/unu-backend)
+
+<a href="https://github.com/2Dokk/unu-frontend"><img src="assets/cnu.png" width="100%" alt="CNU&U 메인 화면"></a>
 
 > 학회원 관리, 활동 모집·신청, 출석, 공지, 예산 관리를 한곳에서 처리하는 웹 서비스
 
