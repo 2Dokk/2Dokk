@@ -119,21 +119,47 @@
 
 ---
 
-### 🎓 CNU&U — 학회 운영·활동 관리 서비스
-[Frontend](https://github.com/2Dokk/unu-frontend) · [Backend](https://github.com/2Dokk/unu-backend)
+### 🎓 [CNU&U — 학회 운영 시스템 · 예산 관리](https://github.com/2Dokk/unu-project)
+[Project](https://github.com/2Dokk/unu-project) · [Frontend](https://github.com/2Dokk/unu-frontend) · [Backend](https://github.com/2Dokk/unu-backend)
 
-> 서강대학교 학회의 학회원 관리, 활동 모집·신청, 출석, 공지, 예산 관리를 한곳에서 처리하는 웹 서비스
+> 서강대학교 학회 운영 서비스 위에, 총무가 구글 시트로 하던 **예산 관리**를 옮겨 온 팀 프로젝트
+> <br>**담당: 예산 관리 도메인 전체 + 신청자 알림** (회원·활동·모집·공지 등 기본 틀은 팀원 담당)
 
-<a href="https://github.com/2Dokk/unu-frontend"><img src="assets/cnu-home.png" width="100%" alt="CNU&U 메인 화면"></a>
+<table>
+<tr>
+<td width="44%"><a href="https://github.com/2Dokk/unu-project"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/budget-overview.png" alt="월별 예산안 화면"></a></td>
+<td width="56%"><a href="https://github.com/2Dokk/unu-project"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/excel-upload-preview.png" alt="엑셀 업로드 미리보기"></a></td>
+</tr>
+<tr>
+<td align="center">월별 예산안 (예상 / 실제)</td>
+<td align="center">엑셀 업로드 미리보기</td>
+</tr>
+</table>
 
-- JWT + `@PreAuthorize` 기반 **역할별 권한 제어** (학회원 / 운영진 / 담당자)
-- 월별 예산안(예상·실제), 스터디 보증금 원장, 지출 건별 내역 관리 및 **Apache POI 엑셀 내보내기·업로드**
-- 활동 개설 → 모집 → 신청 → 수료, 운영진·담당자용 **신청자 알림**
+- 총무와 직접 요구사항을 정리해 **기존 시트 양식은 유지하면서 반복 입력을 없애는 것**을 목표로 설계
+- **원천 기록과 파생 값 분리**: 스터디 보증금 원장·지출 건별 내역이 원천이고 월 금액은 합계 → 수정 창·엑셀·API 어느 경로로 저장해도 서버에서 원천으로 다시 계산
+- 스터디 신청·수료·취소·반려에 따라 **보증금 원장이 자동 연동**, 전월 이월금·15% 환급비 자동 계산
+- **엑셀 내려받기/올리기**(Apache POI): 총무 시트와 같은 양식 + 엑셀 수식, 업로드는 **미리보기 → 확인 → 적용**, 오류가 하나라도 있으면 전부 미반영
+- 운영진·담당자 헤더에 **활동별 새 신청 수 알림**, 예산 API는 `@PreAuthorize`로 운영진 전용
+- 고친 문제: 권한 없는 예산 삭제, 겨울학기 데이터 누락·이월금 0, 보증금 있는 활동 삭제 시 500 오류, 월별 항목 중복
 
 <details>
-<summary>🔍 소개 페이지 보기</summary>
+<summary>🔍 보증금 · 지출 상세 내역 · 자동 계산 잠금 · 신청자 알림 화면 보기</summary>
 <br>
-<img src="assets/cnu-about.png" width="100%" alt="CNU&U 소개 페이지">
+<table>
+<tr>
+<td width="50%"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/deposit-detail.png" alt="스터디 보증금 상세"><br><p align="center">스터디 보증금 상세</p></td>
+<td width="50%"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/edit-locked.png" alt="자동 계산 항목 잠금"><br><p align="center">자동 계산 항목 잠금</p></td>
+</tr>
+<tr>
+<td width="50%"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/expense-menu.png" alt="지출 상세 내역 메뉴"><br><p align="center">지출 상세 내역 메뉴</p></td>
+<td width="50%"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/expense-detail.png" alt="엠티 건별 내역"><br><p align="center">건별 입력 (엠티)</p></td>
+</tr>
+<tr>
+<td colspan="2"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/notification.png" alt="신청자 알림"><br><p align="center">신청자 알림</p></td>
+</tr>
+</table>
+<sub>화면의 이름·학번·금액은 모두 시연용 가상 데이터입니다.</sub>
 </details>
 
-`Java 21` `Spring Boot 3.5` `Spring Security` `JPA` `PostgreSQL` `Next.js 16` `shadcn/ui` `Tailwind CSS`
+`Java 21` `Spring Boot 3.5` `Spring Data JPA` `PostgreSQL` `Spring Security (JWT)` `Apache POI` `Next.js 16` `TypeScript` `shadcn/ui`
