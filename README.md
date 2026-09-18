@@ -125,16 +125,10 @@
 > 서강대학교 학회 운영 서비스 위에, 총무가 구글 시트로 하던 **예산 관리**를 옮겨 온 팀 프로젝트
 > <br>**담당: 예산 관리 도메인 전체 + 신청자 알림** (회원·활동·모집·공지 등 기본 틀은 팀원 담당)
 
-<table>
-<tr>
-<td width="44%"><a href="https://github.com/2Dokk/unu-project"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/budget-overview.png" alt="월별 예산안 화면"></a></td>
-<td width="56%"><a href="https://github.com/2Dokk/unu-project"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/excel-upload-preview.png" alt="엑셀 업로드 미리보기"></a></td>
-</tr>
-<tr>
-<td align="center">월별 예산안 (예상 / 실제)</td>
-<td align="center">엑셀 업로드 미리보기</td>
-</tr>
-</table>
+<p align="center">
+<a href="https://github.com/2Dokk/unu-project"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/budget-overview.png" width="60%" alt="월별 예산안 화면"></a>
+<br>월별 예산안
+</p>
 
 - 총무와 직접 요구사항을 정리해 **기존 시트 양식은 유지하면서 반복 입력을 없애는 것**을 목표로 설계
 - **원천 기록과 파생 값 분리**: 스터디 보증금 원장·지출 건별 내역이 원천이고 월 금액은 합계 → 수정 창·엑셀·API 어느 경로로 저장해도 서버에서 원천으로 다시 계산
@@ -144,7 +138,7 @@
 - 고친 문제: 권한 없는 예산 삭제, 겨울학기 데이터 누락·이월금 0, 보증금 있는 활동 삭제 시 500 오류, 월별 항목 중복
 
 <details>
-<summary>🔍 보증금 · 지출 상세 내역 · 자동 계산 잠금 · 신청자 알림 화면 보기</summary>
+<summary>🔍 보증금 · 지출 상세 내역 · 자동 계산 잠금 · 엑셀 업로드 · 신청자 알림 화면 보기</summary>
 <br>
 <table>
 <tr>
@@ -156,7 +150,8 @@
 <td width="50%"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/expense-detail.png" alt="엠티 건별 내역"><br><p align="center">건별 입력 (엠티)</p></td>
 </tr>
 <tr>
-<td colspan="2"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/notification.png" alt="신청자 알림"><br><p align="center">신청자 알림</p></td>
+<td width="50%"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/excel-upload-preview.png" alt="엑셀 업로드 미리보기"><br><p align="center">엑셀 업로드 미리보기</p></td>
+<td width="50%"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/notification.png" alt="신청자 알림"><br><p align="center">신청자 알림</p></td>
 </tr>
 </table>
 <sub>화면의 이름·학번·금액은 모두 시연용 가상 데이터입니다.</sub>
