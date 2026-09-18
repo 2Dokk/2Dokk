@@ -57,8 +57,6 @@
 ---
 
 ### 💸 [DVP 증권결제 시뮬레이터](https://github.com/2Dokk/dvp-settlement-simulator)
-<a href="https://github.com/2Dokk/dvp-settlement-simulator"><img src="assets/dvp.png" width="100%" alt="DVP 결제 흐름"></a>
-
 > 증권 이전과 대금 지급이 **반드시 함께 성공하거나 함께 실패**하는 DVP 결제를 넷팅·동시성 제어까지 포함해 구현
 
 - DVP 원자성 = 하나의 `@Transactional` 안에서 **잠금 → 양쪽 검증 → 일괄 반영**
