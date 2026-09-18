@@ -80,10 +80,20 @@
 ### 📈 [Smart Order Router (KRX · NXT)](https://github.com/2Dokk/smart-order-router)
 > 한국거래소와 넥스트레이드 복수시장 환경에서 주문을 가장 유리한 시장으로 나눠 보내는 **SOR 엔진 + 모의 거래소**
 
+<a href="https://github.com/2Dokk/smart-order-router"><img src="https://raw.githubusercontent.com/2Dokk/smart-order-router/main/docs/images/backtest-results.png" width="100%" alt="백테스트 결과: 가상 시장 2,000건에서 세 방식 비교"></a>
+
 - **가격·시간 우선** 매칭엔진 직접 구현 (지정가/시장가, DAY·IOC·FOK, KRX 호가단위 검증)
-- 통합 호가창(`ConsolidatedBook`)과 라우팅 전략 분리 — 전략이 틀려도 원주문보다 불리한 주문은 나갈 수 없게 설계
-- 자식 주문마다 **최선집행 근거 로그** 기록
-- 같은 입력이면 같은 결과가 나오는 **결정적 설계**로 KRX 단독 vs SOR **백테스트 비교 리포트** 생성
+- 통합 호가창과 라우팅 전략 분리 — 전략은 계획만 세우고, 주문은 **안전 검사를 통과해야** 나가도록 설계
+- 호가 깊이까지 나눠 보내는 **분할(Sweep) 전략**: 가상 시장 2,000건에서 체결률 **66.2% → 73.9%**, KRX 단독 대비 **+2.11bp**, 불리한 주문 **0건** (모의 시뮬레이션, seed 42)
+- 같은 입력이면 같은 결과가 나오는 **결정적 설계**, 자식 주문마다 **최선집행 근거 로그** 기록
+
+<details>
+<summary>🔍 아키텍처 · 라우팅 비교 예시 보기</summary>
+<br>
+<img src="https://raw.githubusercontent.com/2Dokk/smart-order-router/main/docs/images/architecture.png" width="100%" alt="아키텍처: 주문 하나가 두 거래소로 나뉘어 체결되기까지">
+<br><br>
+<img src="https://raw.githubusercontent.com/2Dokk/smart-order-router/main/docs/images/routing-example.png" width="100%" alt="라우팅 비교: 같은 274주 매수 주문을 세 방식으로 처리한 결과">
+</details>
 
 `Java 21` `Gradle 멀티모듈` `JUnit5` `GitHub Actions`
 
@@ -114,8 +124,16 @@
 
 > 서강대학교 학회의 학회원 관리, 활동 모집·신청, 출석, 공지, 예산 관리를 한곳에서 처리하는 웹 서비스
 
+<a href="https://github.com/2Dokk/unu-frontend"><img src="assets/cnu-home.png" width="100%" alt="CNU&U 메인 화면"></a>
+
 - JWT + `@PreAuthorize` 기반 **역할별 권한 제어** (학회원 / 운영진 / 담당자)
 - 월별 예산안(예상·실제), 스터디 보증금 원장, 지출 건별 내역 관리 및 **Apache POI 엑셀 내보내기·업로드**
 - 활동 개설 → 모집 → 신청 → 수료, 운영진·담당자용 **신청자 알림**
+
+<details>
+<summary>🔍 소개 페이지 보기</summary>
+<br>
+<img src="assets/cnu-about.png" width="100%" alt="CNU&U 소개 페이지">
+</details>
 
 `Java 21` `Spring Boot 3.5` `Spring Security` `JPA` `PostgreSQL` `Next.js 16` `shadcn/ui` `Tailwind CSS`
