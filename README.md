@@ -1,14 +1,12 @@
 <div align="center">
 
-# 안녕하세요, 2Dokk입니다 👋
+# 안녕하세요, 이도경입니다 👋
 
 <!-- 소개 문구는 나중에 추가 -->
 
-<!-- 값 채운 뒤 주석 해제
 | 이름 | 학교 | 전공 | 복수전공 |
 |:---:|:---:|:---:|:---:|
-| {이름} | {학교} | {전공} | {복수전공} |
--->
+| 이도경 | 서강대학교 | 아트&테크놀로지 | 컴퓨터공학과 |
 
 [![Email](https://img.shields.io/badge/Email-2dokyoung%40gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:2dokyoung@gmail.com)
 
