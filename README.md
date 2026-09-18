@@ -101,11 +101,3 @@
 - 활동 개설 → 모집 → 신청 → 출석 → 수료까지 전체 흐름 구현
 
 `Spring Boot 3.5` `Spring Security` `JPA` `PostgreSQL` `Next.js 16` `shadcn/ui` `Docker`
-
----
-
-<div align="center">
-
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=2Dokk&show_icons=true&hide_border=true&count_private=true)
-
-</div>
