@@ -133,7 +133,7 @@
 
 ### 🎓 [CNU&U — 학회 운영 시스템 · 예산 관리](https://github.com/2Dokk/unu-project)
 
-`2026.03 – 2026.09` &nbsp; `팀 프로젝트 · 4인` &nbsp; `담당: 예산 관리 · 신청자 알림`
+`2026.03 – 2026.09` &nbsp; `팀 프로젝트` &nbsp; `담당: 예산 관리 · 신청자 알림`
 
 `Java 21` `Spring Boot 3.5` `Spring Data JPA` `PostgreSQL` `Spring Security (JWT)` `Apache POI` `Next.js 16` `TypeScript` `shadcn/ui`
 
