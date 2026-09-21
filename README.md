@@ -45,7 +45,7 @@
 
 ### 🛰 [위성 지상국 관제 콘솔 (TT&C Console)](https://github.com/2Dokk/ttc-console)
 
-`2026.09` &nbsp; `개인 프로젝트`
+`개인 프로젝트`
 
 `Spring Boot` `Orekit` `STOMP WebSocket` `PostgreSQL` `Flyway` `React` `TypeScript` `Testcontainers`
 
@@ -62,7 +62,7 @@
 
 ### 💸 [DVP 증권결제 시뮬레이터](https://github.com/2Dokk/dvp-settlement-simulator)
 
-`2026.09` &nbsp; `개인 프로젝트`
+`개인 프로젝트`
 
 `Java 21` `Spring Boot 3` `PostgreSQL 16` `Testcontainers` `GitHub Actions`
 
@@ -85,7 +85,7 @@
 
 ### 📈 [Smart Order Router (KRX · NXT)](https://github.com/2Dokk/smart-order-router)
 
-`2026.09` &nbsp; `개인 프로젝트`
+`개인 프로젝트`
 
 `Java 21` `Gradle 멀티모듈` `JUnit5` `GitHub Actions`
 
@@ -110,7 +110,7 @@
 
 ### 🌿 [한의원 진료 기록 자동 정리 도우미 (RAG)](https://github.com/2Dokk/Rag-Project)
 
-`2026.09` &nbsp; `개인 프로젝트`
+`개인 프로젝트`
 
 `Python 3.11` `LangChain` `Chroma` `sentence-transformers` `Gemini API`
 
@@ -133,7 +133,7 @@
 
 ### 🎓 [CNU&U — 학회 운영 시스템 · 예산 관리](https://github.com/2Dokk/unu-project)
 
-`2026.03 – 2026.09` &nbsp; `팀 프로젝트` &nbsp; `담당: 예산 관리 · 신청자 알림`
+`팀 프로젝트` &nbsp; `담당: 예산 관리 · 신청자 알림`
 
 `Java 21` `Spring Boot 3.5` `Spring Data JPA` `PostgreSQL` `Spring Security (JWT)` `Apache POI` `Next.js 16` `TypeScript` `shadcn/ui`
 
