@@ -44,6 +44,11 @@
 ## 📌 Projects
 
 ### 🛰 [위성 지상국 관제 콘솔 (TT&C Console)](https://github.com/2Dokk/ttc-console)
+
+`2026.09` &nbsp; `개인 프로젝트`
+
+`Spring Boot` `Orekit` `STOMP WebSocket` `PostgreSQL` `Flyway` `React` `TypeScript` `Testcontainers`
+
 > 위성이 지상국 상공을 지나는 **몇 분 동안만 통신할 수 있다**는 제약을 그대로 구현한 소형 관제 시스템
 
 <a href="https://github.com/2Dokk/ttc-console"><img src="https://raw.githubusercontent.com/2Dokk/ttc-console/main/docs/console.png" width="100%" alt="지상국 관제 콘솔 화면"></a>
@@ -53,11 +58,14 @@
 - 교신 불가 구간 텔레메트리는 온보드 레코더에 저장했다가 다음 패스에 **재생(playback)**
 - 명령의 **전달 확인(ACK)** 과 **실행 확인(EXECUTED/REJECTED)** 을 분리 검증
 
-`Spring Boot` `Orekit` `STOMP WebSocket` `PostgreSQL` `Flyway` `React` `TypeScript` `Testcontainers`
-
 ---
 
 ### 💸 [DVP 증권결제 시뮬레이터](https://github.com/2Dokk/dvp-settlement-simulator)
+
+`2026.09` &nbsp; `개인 프로젝트`
+
+`Java 21` `Spring Boot 3` `PostgreSQL 16` `Testcontainers` `GitHub Actions`
+
 > 증권 이전과 대금 지급이 **반드시 함께 성공하거나 함께 실패**하는 DVP 결제를 넷팅·동시성 제어까지 포함해 구현
 
 <a href="https://github.com/2Dokk/dvp-settlement-simulator"><img src="https://raw.githubusercontent.com/2Dokk/dvp-settlement-simulator/main/docs/images/netting.png" width="100%" alt="넷팅 전후 비교: 결제 이동 18건 → 4건"></a>
@@ -73,11 +81,14 @@
 <img src="https://raw.githubusercontent.com/2Dokk/dvp-settlement-simulator/main/docs/images/results.png" width="100%" alt="동시성·장애 시나리오 검증 결과">
 </details>
 
-`Java 21` `Spring Boot 3` `PostgreSQL 16` `Testcontainers` `GitHub Actions`
-
 ---
 
 ### 📈 [Smart Order Router (KRX · NXT)](https://github.com/2Dokk/smart-order-router)
+
+`2026.09` &nbsp; `개인 프로젝트`
+
+`Java 21` `Gradle 멀티모듈` `JUnit5` `GitHub Actions`
+
 > 한국거래소와 넥스트레이드 복수시장 환경에서 주문을 가장 유리한 시장으로 나눠 보내는 **SOR 엔진 + 모의 거래소**
 
 <a href="https://github.com/2Dokk/smart-order-router"><img src="https://raw.githubusercontent.com/2Dokk/smart-order-router/main/docs/images/backtest-results.png" width="100%" alt="백테스트 결과: 가상 시장 2,000건에서 세 방식 비교"></a>
@@ -95,11 +106,14 @@
 <img src="https://raw.githubusercontent.com/2Dokk/smart-order-router/main/docs/images/routing-example.png" width="100%" alt="라우팅 비교: 같은 274주 매수 주문을 세 방식으로 처리한 결과">
 </details>
 
-`Java 21` `Gradle 멀티모듈` `JUnit5` `GitHub Actions`
-
 ---
 
 ### 🌿 [한의원 진료 기록 자동 정리 도우미 (RAG)](https://github.com/2Dokk/Rag-Project)
+
+`2026.09` &nbsp; `개인 프로젝트`
+
+`Python 3.11` `LangChain` `Chroma` `sentence-transformers` `Gemini API`
+
 > 진료 중 남긴 짧은 메모를 **정식 진료기록으로 구조화**하고, 과거 방문 이력을 근거로 **비교 브리핑**을 생성
 
 <a href="https://github.com/2Dokk/Rag-Project"><img src="https://raw.githubusercontent.com/2Dokk/Rag-Project/main/docs/images/architecture.png" width="100%" alt="RAG 파이프라인 구조"></a>
@@ -115,15 +129,17 @@
 <img src="https://raw.githubusercontent.com/2Dokk/Rag-Project/main/docs/images/hallucination_before_after.png" width="100%" alt="환각 개선 전후 비교">
 </details>
 
-`Python 3.11` `LangChain` `Chroma` `sentence-transformers` `Gemini API`
-
 ---
 
 ### 🎓 [CNU&U — 학회 운영 시스템 · 예산 관리](https://github.com/2Dokk/unu-project)
-[Project](https://github.com/2Dokk/unu-project) · [Frontend](https://github.com/2Dokk/unu-frontend) · [Backend](https://github.com/2Dokk/unu-backend)
+
+`2026.03 – 2026.09` &nbsp; `팀 프로젝트 · 4인` &nbsp; `담당: 예산 관리 · 신청자 알림`
+
+`Java 21` `Spring Boot 3.5` `Spring Data JPA` `PostgreSQL` `Spring Security (JWT)` `Apache POI` `Next.js 16` `TypeScript` `shadcn/ui`
 
 > 서강대학교 학회 운영 서비스 위에, 총무가 구글 시트로 하던 **예산 관리**를 옮겨 온 팀 프로젝트
-> <br>**담당: 예산 관리 도메인 전체 + 신청자 알림** (회원·활동·모집·공지 등 기본 틀은 팀원 담당)
+> <br>회원·활동·모집·공지 등 기본 틀은 팀원들이 만들었고, **예산 관리 도메인 전체와 신청자 알림**을 설계·구현했습니다.
+> <br>[Project](https://github.com/2Dokk/unu-project) · [Frontend](https://github.com/2Dokk/unu-frontend) · [Backend](https://github.com/2Dokk/unu-backend)
 
 <p align="center">
 <a href="https://github.com/2Dokk/unu-project"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/budget-overview.png" width="60%" alt="월별 예산안 화면"></a>
@@ -157,4 +173,3 @@
 <sub>화면의 이름·학번·금액은 모두 시연용 가상 데이터입니다.</sub>
 </details>
 
-`Java 21` `Spring Boot 3.5` `Spring Data JPA` `PostgreSQL` `Spring Security (JWT)` `Apache POI` `Next.js 16` `TypeScript` `shadcn/ui`
