@@ -110,6 +110,29 @@
 
 ---
 
+### 🌿 [한의원 진료 기록 자동 정리 도우미 (RAG)](https://github.com/2Dokk/Rag-Project)
+
+`개인 프로젝트`
+
+`Python 3.11` `LangChain` `Chroma` `sentence-transformers` `Gemini API`
+
+> 진료 중 남긴 짧은 메모를 **정식 진료기록으로 구조화**하고, 과거 방문 이력을 근거로 **비교 브리핑**을 생성
+
+<a href="https://github.com/2Dokk/Rag-Project"><img src="https://raw.githubusercontent.com/2Dokk/Rag-Project/main/docs/images/architecture.png" width="100%" alt="RAG 파이프라인 구조"></a>
+
+- 과거 방문 기록을 다국어 임베딩(MiniLM, 384차원)으로 Chroma에 적재, **환자 ID로 먼저 필터**해 환자 간 정보 혼입 차단
+- 오늘 메모 + 검색된 과거 이력으로 LLM이 **날짜를 인용한 비교 브리핑** 생성
+- 결과를 원본과 대조해 **환각(서술 순서를 인과로 오해, 기록에 없는 표현 추가)을 발견** → 근거 규칙 4개를 프롬프트에 명시해 개선
+- Anthropic / OpenAI / Gemini 교체 가능 + 429 재시도, API 키가 없으면 **규칙 기반 폴백**
+
+<details>
+<summary>🔍 LLM 환각 발견과 개선 과정 보기</summary>
+<br>
+<img src="https://raw.githubusercontent.com/2Dokk/Rag-Project/main/docs/images/hallucination_before_after.png" width="100%" alt="환각 개선 전후 비교">
+</details>
+
+---
+
 ### 📈 [Smart Order Router (KRX · NXT)](https://github.com/2Dokk/smart-order-router)
 
 `개인 프로젝트`
@@ -149,27 +172,4 @@
 - 가시권 밖 명령은 **PENDING** 으로 대기 → AOS 시 **슬라이딩 윈도우 + Go-Back-N**(COP-1 단순화)으로 순서대로 정확히 한 번 전달
 - 교신 불가 구간 텔레메트리는 온보드 레코더에 저장했다가 다음 패스에 **재생(playback)**
 - 명령의 **전달 확인(ACK)** 과 **실행 확인(EXECUTED/REJECTED)** 을 분리 검증
-
----
-
-### 🌿 [한의원 진료 기록 자동 정리 도우미 (RAG)](https://github.com/2Dokk/Rag-Project)
-
-`개인 프로젝트`
-
-`Python 3.11` `LangChain` `Chroma` `sentence-transformers` `Gemini API`
-
-> 진료 중 남긴 짧은 메모를 **정식 진료기록으로 구조화**하고, 과거 방문 이력을 근거로 **비교 브리핑**을 생성
-
-<a href="https://github.com/2Dokk/Rag-Project"><img src="https://raw.githubusercontent.com/2Dokk/Rag-Project/main/docs/images/architecture.png" width="100%" alt="RAG 파이프라인 구조"></a>
-
-- 과거 방문 기록을 다국어 임베딩(MiniLM, 384차원)으로 Chroma에 적재, **환자 ID로 먼저 필터**해 환자 간 정보 혼입 차단
-- 오늘 메모 + 검색된 과거 이력으로 LLM이 **날짜를 인용한 비교 브리핑** 생성
-- 결과를 원본과 대조해 **환각(서술 순서를 인과로 오해, 기록에 없는 표현 추가)을 발견** → 근거 규칙 4개를 프롬프트에 명시해 개선
-- Anthropic / OpenAI / Gemini 교체 가능 + 429 재시도, API 키가 없으면 **규칙 기반 폴백**
-
-<details>
-<summary>🔍 LLM 환각 발견과 개선 과정 보기</summary>
-<br>
-<img src="https://raw.githubusercontent.com/2Dokk/Rag-Project/main/docs/images/hallucination_before_after.png" width="100%" alt="환각 개선 전후 비교">
-</details>
 
