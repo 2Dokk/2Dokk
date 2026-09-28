@@ -43,20 +43,47 @@
 
 ## 📌 Projects
 
-### 🛰 [위성 지상국 관제 콘솔 (TT&C Console)](https://github.com/2Dokk/ttc-console)
+### 🎓 [CNU&U — 학회 운영 시스템 · 예산 관리](https://github.com/2Dokk/unu-project)
 
-`개인 프로젝트`
+`팀 프로젝트` &nbsp; `담당: 예산 관리 · 신청자 알림`
 
-`Spring Boot` `Orekit` `STOMP WebSocket` `PostgreSQL` `Flyway` `React` `TypeScript` `Testcontainers`
+`Java 21` `Spring Boot 3.5` `Spring Data JPA` `PostgreSQL` `Spring Security (JWT)` `Apache POI` `Next.js 16` `TypeScript` `shadcn/ui`
 
-> 위성이 지상국 상공을 지나는 **몇 분 동안만 통신할 수 있다**는 제약을 그대로 구현한 소형 관제 시스템
+> 서강대학교 학회 운영 서비스 위에, 총무가 구글 시트로 하던 **예산 관리**를 옮겨 온 팀 프로젝트
+> <br>회원·활동·모집·공지 등 기본 틀은 팀원들이 만들었고, **예산 관리 도메인 전체와 신청자 알림**을 설계·구현했습니다.
+> <br>[Project](https://github.com/2Dokk/unu-project) · [Frontend](https://github.com/2Dokk/unu-frontend) · [Backend](https://github.com/2Dokk/unu-backend)
 
-<a href="https://github.com/2Dokk/ttc-console"><img src="https://raw.githubusercontent.com/2Dokk/ttc-console/main/docs/console.png" width="100%" alt="지상국 관제 콘솔 화면"></a>
+<p align="center">
+<a href="https://github.com/2Dokk/unu-project"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/budget-overview.png" width="60%" alt="월별 예산안 화면"></a>
+<br>월별 예산안
+</p>
 
-- 공개 궤도 데이터(Celestrak TLE) + **Orekit SGP4** 로 위성 위치와 **AOS/LOS** 계산
-- 가시권 밖 명령은 **PENDING** 으로 대기 → AOS 시 **슬라이딩 윈도우 + Go-Back-N**(COP-1 단순화)으로 순서대로 정확히 한 번 전달
-- 교신 불가 구간 텔레메트리는 온보드 레코더에 저장했다가 다음 패스에 **재생(playback)**
-- 명령의 **전달 확인(ACK)** 과 **실행 확인(EXECUTED/REJECTED)** 을 분리 검증
+- 총무와 직접 요구사항을 정리해 **기존 시트 양식은 유지하면서 반복 입력을 없애는 것**을 목표로 설계
+- **원천 기록과 파생 값 분리**: 스터디 보증금 원장·지출 건별 내역이 원천이고 월 금액은 합계 → 수정 창·엑셀·API 어느 경로로 저장해도 서버에서 원천으로 다시 계산
+- 스터디 신청·수료·취소·반려에 따라 **보증금 원장이 자동 연동**, 전월 이월금·15% 환급비 자동 계산
+- **엑셀 내려받기/올리기**(Apache POI): 총무 시트와 같은 양식 + 엑셀 수식, 업로드는 **미리보기 → 확인 → 적용**, 오류가 하나라도 있으면 전부 미반영
+- 운영진·담당자 헤더에 **활동별 새 신청 수 알림**, 예산 API는 `@PreAuthorize`로 운영진 전용
+- 고친 문제: 권한 없는 예산 삭제, 겨울학기 데이터 누락·이월금 0, 보증금 있는 활동 삭제 시 500 오류, 월별 항목 중복
+
+<details>
+<summary>🔍 보증금 · 지출 상세 내역 · 자동 계산 잠금 · 엑셀 업로드 · 신청자 알림 화면 보기</summary>
+<br>
+<table>
+<tr>
+<td width="50%"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/deposit-detail.png" alt="스터디 보증금 상세"><br><p align="center">스터디 보증금 상세</p></td>
+<td width="50%"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/edit-locked.png" alt="자동 계산 항목 잠금"><br><p align="center">자동 계산 항목 잠금</p></td>
+</tr>
+<tr>
+<td width="50%"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/expense-menu.png" alt="지출 상세 내역 메뉴"><br><p align="center">지출 상세 내역 메뉴</p></td>
+<td width="50%"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/expense-detail.png" alt="엠티 건별 내역"><br><p align="center">건별 입력 (엠티)</p></td>
+</tr>
+<tr>
+<td width="50%"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/excel-upload-preview.png" alt="엑셀 업로드 미리보기"><br><p align="center">엑셀 업로드 미리보기</p></td>
+<td width="50%"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/notification.png" alt="신청자 알림"><br><p align="center">신청자 알림</p></td>
+</tr>
+</table>
+<sub>화면의 이름·학번·금액은 모두 시연용 가상 데이터입니다.</sub>
+</details>
 
 ---
 
@@ -108,6 +135,23 @@
 
 ---
 
+### 🛰 [위성 지상국 관제 콘솔 (TT&C Console)](https://github.com/2Dokk/ttc-console)
+
+`개인 프로젝트`
+
+`Spring Boot` `Orekit` `STOMP WebSocket` `PostgreSQL` `Flyway` `React` `TypeScript` `Testcontainers`
+
+> 위성이 지상국 상공을 지나는 **몇 분 동안만 통신할 수 있다**는 제약을 그대로 구현한 소형 관제 시스템
+
+<a href="https://github.com/2Dokk/ttc-console"><img src="https://raw.githubusercontent.com/2Dokk/ttc-console/main/docs/console.png" width="100%" alt="지상국 관제 콘솔 화면"></a>
+
+- 공개 궤도 데이터(Celestrak TLE) + **Orekit SGP4** 로 위성 위치와 **AOS/LOS** 계산
+- 가시권 밖 명령은 **PENDING** 으로 대기 → AOS 시 **슬라이딩 윈도우 + Go-Back-N**(COP-1 단순화)으로 순서대로 정확히 한 번 전달
+- 교신 불가 구간 텔레메트리는 온보드 레코더에 저장했다가 다음 패스에 **재생(playback)**
+- 명령의 **전달 확인(ACK)** 과 **실행 확인(EXECUTED/REJECTED)** 을 분리 검증
+
+---
+
 ### 🌿 [한의원 진료 기록 자동 정리 도우미 (RAG)](https://github.com/2Dokk/Rag-Project)
 
 `개인 프로젝트`
@@ -127,49 +171,5 @@
 <summary>🔍 LLM 환각 발견과 개선 과정 보기</summary>
 <br>
 <img src="https://raw.githubusercontent.com/2Dokk/Rag-Project/main/docs/images/hallucination_before_after.png" width="100%" alt="환각 개선 전후 비교">
-</details>
-
----
-
-### 🎓 [CNU&U — 학회 운영 시스템 · 예산 관리](https://github.com/2Dokk/unu-project)
-
-`팀 프로젝트` &nbsp; `담당: 예산 관리 · 신청자 알림`
-
-`Java 21` `Spring Boot 3.5` `Spring Data JPA` `PostgreSQL` `Spring Security (JWT)` `Apache POI` `Next.js 16` `TypeScript` `shadcn/ui`
-
-> 서강대학교 학회 운영 서비스 위에, 총무가 구글 시트로 하던 **예산 관리**를 옮겨 온 팀 프로젝트
-> <br>회원·활동·모집·공지 등 기본 틀은 팀원들이 만들었고, **예산 관리 도메인 전체와 신청자 알림**을 설계·구현했습니다.
-> <br>[Project](https://github.com/2Dokk/unu-project) · [Frontend](https://github.com/2Dokk/unu-frontend) · [Backend](https://github.com/2Dokk/unu-backend)
-
-<p align="center">
-<a href="https://github.com/2Dokk/unu-project"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/budget-overview.png" width="60%" alt="월별 예산안 화면"></a>
-<br>월별 예산안
-</p>
-
-- 총무와 직접 요구사항을 정리해 **기존 시트 양식은 유지하면서 반복 입력을 없애는 것**을 목표로 설계
-- **원천 기록과 파생 값 분리**: 스터디 보증금 원장·지출 건별 내역이 원천이고 월 금액은 합계 → 수정 창·엑셀·API 어느 경로로 저장해도 서버에서 원천으로 다시 계산
-- 스터디 신청·수료·취소·반려에 따라 **보증금 원장이 자동 연동**, 전월 이월금·15% 환급비 자동 계산
-- **엑셀 내려받기/올리기**(Apache POI): 총무 시트와 같은 양식 + 엑셀 수식, 업로드는 **미리보기 → 확인 → 적용**, 오류가 하나라도 있으면 전부 미반영
-- 운영진·담당자 헤더에 **활동별 새 신청 수 알림**, 예산 API는 `@PreAuthorize`로 운영진 전용
-- 고친 문제: 권한 없는 예산 삭제, 겨울학기 데이터 누락·이월금 0, 보증금 있는 활동 삭제 시 500 오류, 월별 항목 중복
-
-<details>
-<summary>🔍 보증금 · 지출 상세 내역 · 자동 계산 잠금 · 엑셀 업로드 · 신청자 알림 화면 보기</summary>
-<br>
-<table>
-<tr>
-<td width="50%"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/deposit-detail.png" alt="스터디 보증금 상세"><br><p align="center">스터디 보증금 상세</p></td>
-<td width="50%"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/edit-locked.png" alt="자동 계산 항목 잠금"><br><p align="center">자동 계산 항목 잠금</p></td>
-</tr>
-<tr>
-<td width="50%"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/expense-menu.png" alt="지출 상세 내역 메뉴"><br><p align="center">지출 상세 내역 메뉴</p></td>
-<td width="50%"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/expense-detail.png" alt="엠티 건별 내역"><br><p align="center">건별 입력 (엠티)</p></td>
-</tr>
-<tr>
-<td width="50%"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/excel-upload-preview.png" alt="엑셀 업로드 미리보기"><br><p align="center">엑셀 업로드 미리보기</p></td>
-<td width="50%"><img src="https://raw.githubusercontent.com/2Dokk/unu-project/main/docs/images/notification.png" alt="신청자 알림"><br><p align="center">신청자 알림</p></td>
-</tr>
-</table>
-<sub>화면의 이름·학번·금액은 모두 시연용 가상 데이터입니다.</sub>
 </details>
 
