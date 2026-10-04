@@ -110,6 +110,32 @@
 
 ---
 
+### 🏦 [소액결제 차액결제 시뮬레이터](https://github.com/2Dokk/net-settlement-simulator)
+
+`개인 프로젝트`
+
+`Java 21` `Spring Boot 3` `PostgreSQL 16` `Testcontainers` `GitHub Actions`
+
+> 고객 이체는 즉시 처리하고 은행 간 결제는 다음 날 **차액만** 하는 이연 차액결제 구조를 순이체한도·담보·공동분담까지 포함해 구현
+
+<a href="https://github.com/2Dokk/net-settlement-simulator"><img src="https://raw.githubusercontent.com/2Dokk/net-settlement-simulator/main/docs/images/netting.png" width="100%" alt="다자간 상계: 은행 간 결제 1,000건 → 5건"></a>
+
+- 은행 포지션을 **비관적 잠금**으로 잡은 채 순이체한도 검사: 한도 직전 100건 동시 요청에서 정확히 10건만 승인
+- 다자간 상계로 은행 간 이체 **1,000건 → 차액결제 5건** (금액 92.8% 감소, 테스트 데이터 기준)
+- 전문번호 유일 제약으로 **중복 이체 방지**: 같은 요청 10번 동시 전송 → 1건만 반영
+- 부족분은 결제계좌 → 담보 → **공동분담(한도 비율, 1원 단위)** 순으로 메우고, 결제 전체를 한 트랜잭션으로 묶어 일부만 결제되는 상태를 없앰
+- DVP 프로젝트에서 겪은 JPA 캐시 버그와 부분 정산 버그를 처음 설계부터 반영
+
+<details>
+<summary>🔍 결제 실패 시나리오 · 검증 결과 보기</summary>
+<br>
+<img src="https://raw.githubusercontent.com/2Dokk/net-settlement-simulator/main/docs/images/default-scenario.png" width="100%" alt="한 은행이 다 못 갚을 때: 결제계좌 → 담보 → 공동분담">
+<br><br>
+<img src="https://raw.githubusercontent.com/2Dokk/net-settlement-simulator/main/docs/images/results.png" width="100%" alt="동시성 · 중복 요청 · 영업일 경계 검증 결과">
+</details>
+
+---
+
 ### 🌿 [한의원 진료 기록 자동 정리 도우미 (RAG)](https://github.com/2Dokk/Rag-Project)
 
 `개인 프로젝트`
