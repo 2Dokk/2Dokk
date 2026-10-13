@@ -19,7 +19,6 @@
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot_3-6DB33F?style=flat-square&logo=springboot&logoColor=white)
 ![Spring Security](https://img.shields.io/badge/Spring_Security-6DB33F?style=flat-square&logo=springsecurity&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
-![WebSocket](https://img.shields.io/badge/STOMP_WebSocket-010101?style=flat-square&logo=socketdotio&logoColor=white)
 
 **Frontend** &nbsp;
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
@@ -91,7 +90,7 @@
 
 `개인 프로젝트`
 
-`Java 21` `Spring Boot 3` `PostgreSQL 16` `Testcontainers` `GitHub Actions`
+`Java 21` `Spring Boot 3` `PostgreSQL 16` `Testcontainers` `Kubernetes` `Docker` `GitHub Actions`
 
 > 증권 이전과 대금 지급이 **반드시 함께 성공하거나 함께 실패**하는 DVP 결제를 넷팅·동시성 제어까지 포함해 구현
 
@@ -101,6 +100,8 @@
 - CCP 상대 **배치 넷팅**으로 결제 이동 **18건 → 4건 (78% 감소, 테스트 데이터 기준)**
 - 부족 참가자를 한 명씩 제외하며 정산 가능한 거래 집합을 먼저 확정 → 처음 설계의 **CCP 잔여 불균형 버그**를 구조적으로 제거
 - **고정 순서 비관적 잠금**으로 교착상태 방지: 20건 동시 결제 요청에서 정확히 16건만 성공, 초과 인출 0
+- **쿠버네티스 배포**(로컬 단일 노드): 파드 장애 시 **약 6초 자동 복구**, 무중단 롤링 업데이트 중 **요청 실패 0건**, HPA로 부하에 따라 파드 **2 → 10개 자동 확장** 후 복귀
+- CI에서 **테스트 통과 시에만** 이미지 빌드 → `ghcr.io` 업로드
 
 <details>
 <summary>🔍 동시성·장애 시나리오 검증 결과 보기</summary>
@@ -211,21 +212,4 @@
 <br><br>
 <img src="https://raw.githubusercontent.com/2Dokk/smart-order-router/main/docs/images/routing-example.png" width="100%" alt="라우팅 비교: 같은 274주 매수 주문을 세 방식으로 처리한 결과">
 </details>
-
----
-
-### 🛰 [위성 지상국 관제 콘솔 (TT&C Console)](https://github.com/2Dokk/ttc-console)
-
-`개인 프로젝트`
-
-`Spring Boot` `Orekit` `STOMP WebSocket` `PostgreSQL` `Flyway` `React` `TypeScript` `Testcontainers`
-
-> 위성이 지상국 상공을 지나는 **몇 분 동안만 통신할 수 있다**는 제약을 그대로 구현한 소형 관제 시스템
-
-<a href="https://github.com/2Dokk/ttc-console"><img src="https://raw.githubusercontent.com/2Dokk/ttc-console/main/docs/console.png" width="100%" alt="지상국 관제 콘솔 화면"></a>
-
-- 공개 궤도 데이터(Celestrak TLE) + **Orekit SGP4** 로 위성 위치와 **AOS/LOS** 계산
-- 가시권 밖 명령은 **PENDING** 으로 대기 → AOS 시 **슬라이딩 윈도우 + Go-Back-N**(COP-1 단순화)으로 순서대로 정확히 한 번 전달
-- 교신 불가 구간 텔레메트리는 온보드 레코더에 저장했다가 다음 패스에 **재생(playback)**
-- 명령의 **전달 확인(ACK)** 과 **실행 확인(EXECUTED/REJECTED)** 을 분리 검증
 
