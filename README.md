@@ -18,7 +18,7 @@
 
 `개인 프로젝트`
 
-`Spring Boot` `Orekit` `STOMP WebSocket` `PostgreSQL` `Flyway` `React` `TypeScript` `Testcontainers`
+`Spring Boot` `Orekit` `PostgreSQL` `React`
 
 > 위성이 지상국 상공을 지나는 **몇 분 동안만 통신할 수 있다**는 제약을 그대로 구현한 소형 관제 시스템
 
@@ -35,7 +35,7 @@
 
 `팀 프로젝트` &nbsp; `담당: 예산 관리 · 신청자 알림`
 
-`Java 21` `Spring Boot 3.5` `Spring Data JPA` `PostgreSQL` `Spring Security (JWT)` `Apache POI` `Next.js 16` `TypeScript` `shadcn/ui`
+`Java 21` `Spring Boot` `PostgreSQL` `Next.js`
 
 > 서강대학교 학회 운영 서비스 위에, 총무가 구글 시트로 하던 **예산 관리**를 옮겨 온 팀 프로젝트
 > <br>회원·활동·모집·공지 등 기본 틀은 팀원들이 만들었고, **예산 관리 도메인 전체와 신청자 알림**을 설계·구현했습니다.
@@ -79,7 +79,7 @@
 
 `개인 프로젝트`
 
-`Java 21` `Spring Boot 3` `PostgreSQL 16` `Testcontainers` `Kubernetes` `Docker` `GitHub Actions`
+`Java 21` `Spring Boot` `PostgreSQL` `Testcontainers`
 
 > 증권 이전과 대금 지급이 **반드시 함께 성공하거나 함께 실패**하는 DVP 결제를 넷팅·동시성 제어까지 포함해 구현
 
@@ -104,7 +104,7 @@
 
 `개인 프로젝트`
 
-`Java 21` `Spring Boot 3` `PostgreSQL 16` `Testcontainers` `GitHub Actions`
+`Java 21` `Spring Boot` `PostgreSQL` `Testcontainers`
 
 > 고객 이체는 즉시 처리하고 은행 간 결제는 다음 날 **차액만** 하는 이연 차액결제 구조를 순이체한도·담보·공동분담까지 포함해 구현
 
@@ -130,7 +130,7 @@
 
 `개인 프로젝트`
 
-`Python 3.11` `LangChain` `Chroma` `sentence-transformers` `Gemini API`
+`Python` `LangChain` `Chroma`
 
 > 진료 중 남긴 짧은 메모를 **정식 진료기록으로 구조화**하고, 과거 방문 이력을 근거로 **비교 브리핑**을 생성
 
@@ -153,7 +153,7 @@
 
 `개인 프로젝트`
 
-`Java 21` `Gradle 멀티모듈` `JUnit5` `GitHub Actions`
+`Java 21` `JUnit5`
 
 > 한국거래소와 넥스트레이드 복수시장 환경에서 주문을 가장 유리한 시장으로 나눠 보내는 **SOR 엔진 + 모의 거래소**
 
